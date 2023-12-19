@@ -1,0 +1,964 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevOps</title>
+    <link rel="stylesheet" href="Libraries/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header  -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav-logo">Team  Dev0ps</a>
+
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list grid">
+            <li class="nav-item">
+              <a href="#home" class="nav-link"
+                ><i class="fa-solid fa-house nav-icon"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link"
+                ><i class="fa-solid fa-user nav-icon"></i> About</a
+              >
+            </li>
+
+<!-- sign up -->
+            <li class="nav-item">
+              <a href="signin.html" class="nav-link"
+                ><i class="fa-solid fa-image nav-icon"></i>sign up</a
+              >
+            </li>
+<!-- sign up -->
+
+            <li class="nav-item">
+              <a href="#services" class="nav-link"
+                ><i class="fa-solid fa-briefcase nav-icon"></i> Services</a
+              >
+            </li>
+
+            
+            <!-- <li class="nav-item">
+              <a href="#portfolio" class="nav-link"
+                ><i class="fa-solid fa-image nav-icon"></i> Projects</a
+              >
+            </li> -->
+            <li class="nav-item">
+              <a href="#contact" class="nav-link"
+                ><i class="fa-solid fa-message nav-icon"></i> Contact</a>
+            </li>
+
+            
+
+
+
+          </ul>
+          <i class="fa-solid fa-xmark nav-close" id="nav-close"></i>
+        </div>
+
+        <div class="nav-btns">
+          <!-- theme btn  -->
+          <i class="fa-regular fa-moon change-theme" id="theme-button">
+          </i>
+
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="home section" id="home">
+        <div class="home-container container grid">
+          <div class="home-content grid">
+            <div class="home-social">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                class="home-social-icon"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                class="home-social-icon"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=729sbsLMIyk"
+                target="_blank"
+                class="home-social-icon"
+              >
+              <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+
+           
+
+            <div class="home-img">
+              <img src="WhatsApp Image 2023-12-13 at 04.23.28.jpeg">
+            </div> 
+
+            <div class="home-data">
+              <h1 class="home-title">Hi, We Are Team DevOps</h1>
+              <h3 class="home-subtitle">Squezz your Data,not your stress ball !</h3> 
+              <p class="home-description">
+                Team DevOps at the forefront of innovation, we specialize in crafting a cutting-edge data compression solution tailored for backbone networks. Our project seamlessly optimizes data transfer, enhancing efficiency and performance across the network infrastructure
+              </p>
+              <a href="#contact" class="button button-flex">
+                Contact Us <i class="fa-regular fa-envelope button-icon"></i>
+              </a>
+            </div>
+
+          </div>
+          <div class="home-scroll">
+            <a href="#about" class="home-scroll-button button-flex">
+              <!-- <i class="fa-solid fa-computer-mouse home-scroll-mouse"></i> -->
+              <!-- <img class="home-scroll-mouse" src="MOUSEE.png" alt="" /> -->
+              <span class="home-scroll-name">Scroll down</span>
+              <i class="fa-solid fa-angles-down home-scroll-arrow"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      
+      
+<!-- .......................chat app............................. -->
+
+<section class="Room section" id="Room">
+  <h2 class="section-title">Chat Room</h2>
+  <br><br>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"
+      integrity="sha512-Xm9qbB6Pu06k3PUwPj785dyTl6oHxgsv9nHp7ej7nCpAqGZT3OZpsELuCYX05DdonFpTlBpXMOxjavIAIUwr0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="app.js"></script>
+  </head>
+
+  <body>
+    <main class="chat-room">
+      <form class="form-join">
+        <input
+          type="text"
+          id="name"
+          maxlength="8"
+          placeholder="Your name"
+          size="5"
+          required
+        />
+        <input
+          type="text"
+          id="room"
+          placeholder="Chat room"
+          size="5"
+          required
+        />
+        <button id="join" type="submit">Join</button>
+      </form>
+
+      <ul class="chat-display"></ul>
+
+       <p class="user-list"></p>
+
+      <p class="room-list"></p>
+
+      <p class="activity"></p>
+
+      <!-- <form action="/your-upload-endpoint" method="post" enctype="multipart/form-data">
+         Other form fields and inputs go here 
+        <input type="file" name="fileInput" id="fileInput">
+        <input type="submit" value="Upload">
+    </form>-->
+
+   <!-- Make sure to include the enctype attribute in the form for file uploads -->
+<form class="form-msg" class="form-upload" enctype="multipart/form-data">
+    <input type="text" id="message" placeholder="Your message" required />
+    <input type="file" id="file" name="file" />
+    <button type="button" onclick="uploadFile()">uploadFile</button>
+    <button type="submit">Send</button>
+</form>
+    </main>
+
+ <!-- .................about......................... -->
+      <section class="about section" id="about">
+        <h2 class="section-title">About Us</h2>
+        <span class="section-subtitle">Our Introduction</span>
+
+        <div class="about-container container grid">
+          <img src="https://supportyourapp.com/blog/wp-content/uploads/2020/06/cross_functional.jpg" alt="" class="about-img" />
+
+          <div class="about-data">
+            <p class="about-description">
+              Team DevOps proudly presents a visionary initiative at the forefront of technological
+               advancement — our project on data compression for backbone networks. 
+               With a commitment to excellence, we harness state-of-the-art technologies
+                to redefine network efficiency, promising a future where seamless data
+                 transfer is not just a necessity but a standard. Join us on this
+                  journey as we shape the digital landscape through innovation and precision.
+            </p>
+
+            <div class="about-info">
+              <div>
+                <span class="about-info-title">02+</span>
+                <span class="about-info-name"
+                  >Months <br />
+                  experience</span
+                >
+              </div>
+              <div>
+                <span class="about-info-title">20+</span>
+                <span class="about-info-name"
+                  >Happy <br />
+                  clients</span
+                >
+              </div>
+              <div>
+                <span class="about-info-title">06+</span>
+                <span class="about-info-name"
+                  >Companies <br />
+                  worked</span
+                >
+              </div>
+            </div>
+
+          
+          </div>
+        </div>
+      </section>
+
+     
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services section" id="services">
+        <h2 class="section-title">Services</h2>
+        <span class="section-subtitle">What We offer</span>
+
+        <div class="services-container container grid">
+          <!-- service 1  -->
+          <div class="services-content">
+            <div>
+              <i class="fa-solid fa-code services-icon"></i>
+
+              <h3 class="services-title">
+                Accelerated  <br />
+                Data Transfer
+              </h3>
+            </div>
+            <span
+              class="button button-flex button-small button-link services-button"
+            >
+              View more
+              <i class="fa-solid fa-arrow-right button-icon"></i>
+            </span>
+
+            <div class="services-box">
+              <div class="services-box-content">
+                <h4 class="services-box-title">
+                  Accelerated  <br />
+                  Data Transfer
+                </h4>
+                <i class="fa-solid fa-xmark services-box-close"></i>
+
+                <ul class="services-box-services grid">
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Efficient Bandwidth Usage</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Swift Response Times</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Streamlined Communication</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Dynamic Prioritization</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- service 2  -->
+          <div class="services-content">
+            <div>
+              <i class="fa-brands fa-uikit services-icon"></i>
+              <h3 class="services-title">
+                Optimized Resource <br />
+                Utilization
+              </h3>
+            </div>
+            <span
+              class="button button-flex button-small button-link services-button"
+            >
+              View more
+              <i class="fa-solid fa-arrow-right button-icon"></i>
+            </span>
+
+            <div class="services-box">
+              <div class="services-box-content">
+                <h4 class="services-box-title">
+                  Optimized Resource <br />
+                Utilization
+                </h4>
+                <i class="fa-solid fa-xmark services-box-close"></i>
+
+                <ul class="services-box-services grid">
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Cost-Effective Operations</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Maximized Bandwidth Capacity</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Adaptive Resource Scaling</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Intelligent Resource Allocation</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- service 3  -->
+          <div class="services-content">
+            <div>
+              <i class="fa-solid fa-hashtag services-icon"></i>
+              <h3 class="services-title">
+                Enhanced User <br />
+                Experience
+              </h3>
+            </div>
+            <span
+              class="button button-flex button-small button-link services-button"
+            >
+              View more
+              <i class="fa-solid fa-arrow-right button-icon"></i>
+            </span>
+
+            <div class="services-box">
+              <div class="services-box-content">
+                <h4 class="services-box-title">
+                  Enhanced User <br />
+                Experience
+                </h4>
+                <i class="fa-solid fa-xmark services-box-close"></i>
+
+                <ul class="services-box-services grid">
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Swift Load Times</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Improved Application Responsiveness</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p>Improved Application Responsiveness</p>
+                  </li>
+                  <li class="services-box-list">
+                    <i
+                      class="fa-regular fa-circle-check services-list-icon"
+                    ></i>
+                    <p> Cross-Platform Compatibility</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+            
+      <section class="project-contact section">
+        <div class="project-bg">
+          <div class="project-container container grid">
+            <div class="project-data">
+              <h2 class="project-title">Do you have a Big Data?</h2>
+              <p class="project-description">
+              Squezz it!
+              </p>
+              <a href="#contact" class="button button-flex button-white"
+                >Contact us
+                <i
+                  class="fa-regular fa-comment-dots project-icon button-icon"
+                ></i>
+              </a>
+            </div>
+            <img src="https://ied.eu/wp-content/uploads/2016/01/new.png" alt="" class="project-img" />
+          </div>
+        </div>
+      </section>
+      
+  <!-- testimonial -->
+  <section class="testimonial section">
+    <h2 class="section-title">Testimonial</h2>
+    <span class="section-subtitle">My Client saying</span>
+
+    <div class="testimonial-container container swiper-container">
+      <div class="swiper-wrapper">
+        <!-- testimonial 1  -->
+        <div class="testimonial-content swiper-slide">
+          <div class="testimonial-data">
+            <div class="testimonial-header">
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                class="testimonial-img"
+              />
+
+              <div>
+                <h3 class="testimonial-name">Tim Thomas</h3>
+                <span class="testimonial-client">Client</span>
+              </div>
+            </div>
+
+            <div>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+            </div>
+          </div>
+          <p class="testimonial-description">
+            We are keenly interested in the cost-effective operations that your
+             data compression technology promises, as it aligns with our focus on
+              optimizing resource utilization and reducing operational costs.
+          </p>
+        </div>
+        <!-- testimonia 2 -->
+        <div class="testimonial-content swiper-slide">
+          <div class="testimonial-data">
+            <div class="testimonial-header">
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                class="testimonial-img"
+              />
+
+              <div>
+                <h3 class="testimonial-name">Aron Delani</h3>
+                <span class="testimonial-client">Client</span>
+              </div>
+            </div>
+
+            <div>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+            </div>
+          </div>
+          <p class="testimonial-description">
+            Your commitment to optimizing bandwidth usage aligns perfectly with our goal of creating 
+            a high-speed and responsive network environment.The dynamic prioritization of data for 
+            real-time communication is particularly appealing, as we rely heavily on 
+            instant updates and low-latency interactions in our applications.
+          </p>
+        </div>
+        <!-- testimonial  3-->
+        <div class="testimonial-content swiper-slide">
+          <div class="testimonial-data">
+            <div class="testimonial-header">
+              <img
+                src="https://www.iheartradio.ca/image/policy:1.12513060:1590534721/image-jpg-t-1590534666-size-Large.jpg?f=default&$p$f=77915bd"
+                alt=""
+                class="testimonial-img"
+              />
+
+              <div>
+                <h3 class="testimonial-name">Bailey</h3>
+                <span class="testimonial-client">Client</span>
+              </div>
+            </div>
+
+            <div>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+              <i class="fa-regular fa-star testimonial-icon"></i>
+            </div>
+          </div>
+          <p class="testimonial-description">
+            Security is of utmost importance to us, and we appreciate the emphasis on secure data transmission and the reduced attack surface achieved through your compression methods.
+The efficient network monitoring capabilities align well with our commitment to staying vigilant and responsive to potential security threats.
+          </p>
+        </div>
+      </div>
+      <div class="swiper-pagination swiper-pagination-testimonial"></div>
+    </div>
+  </section>
+<!-- contact me  -->
+<section class="contact section" id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <span class="section-subtitle">Get in touch</span>
+
+  <div class="contact-container container grid">
+    <div>
+      <div class="contact-info">
+        <i class="fa-regular fa-envelope contact-icon"></i>
+        <div>
+          <h3 class="contact-title">Email</h3>
+          <a
+            href="mailto:@gmail.com"
+            target="_blank"
+            class="contact-subtitle"
+            >DevOps@gmail.com</a
+          >
+        </div>
+      </div>
+      <div class="contact-info">
+        <i class="fa-brands fa-linkedin-in contact-icon"></i>
+        <div>
+          <h3 class="contact-title">Linkedin</h3>
+          <a
+            class="contact-subtitle"
+            href="https://www.linkedin.com/in/"
+            target="_blank"
+            >DevOps</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer  -->
+<footer class="footer">
+  <div class="footer-bg">
+    <div class="footer-container container grid">
+      <div>
+        <h1 class="footer-title">Dev0ps</h1>
+        <!-- <span class="footer-subtitle">Frontend developer</span> -->
+      </div>
+      <ul class="footer-links">
+        <li>
+          <a href="#services" class="footer-link">Services</a>
+        </li>
+        <li>
+          <a href="#about" class="footer-link">About</a>
+        </li>
+        <li>
+          <a href="#contact" class="footer-link">Contact</a>
+        </li>
+      </ul>
+
+      <div class="footer-socials">
+        <a
+          href="https://www.linkedin.com/in/../"
+          target="_blank"
+          class="footer-social"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a
+          href="https://www.youtube.com/watch?v=729sbsLMIyk&t=15s"
+          target="_blank"
+          target="_blank"
+          class="footer-social"
+        >
+        <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/_.../"
+          target="_blank"
+          class="footer-social"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="cta-text">
+        <i class="fa-solid fa-location-dot"></i>
+        <h4>Find us</h4>
+        <span>Najirabad, 715000, Kolkata</span>
+    </div>
+
+
+
+    </div>
+    <p class="footer-copy">copyright &#169; DevOps. All Rights Reserved. made with L<i class="fa-solid fa-heart"></i>VE </p>
+    <!-- <p class="footer-copy">By TEAM DevOps</p> -->
+  </div>
+</footer>
+</main>
+
+
+
+
+
+
+<a href="#home" class="scrollup" id="scroll-up">
+<i class="fa-solid fa-arrow-up scroll-up-icon"></i>
+</a>
+<script src="Libraries/swiper-bundle.min.js"></script>
+<script
+src="https://kit.fontawesome.com/9b634c15bd.js"
+crossorigin="anonymous"
+></script>
+<script src="script.js"></script>
+</body>
+
+
+
+
+<script>const navMenu = document.getElementById("nav-menu"),
+navToggle = document.getElementById("nav-toggle"),
+navClose = document.getElementById("nav-close");
+
+if (navToggle) {
+navToggle.addEventListener("click", () => {
+navMenu.classList.add("show-menu");
+});
+}
+
+if (navClose) {
+navClose.addEventListener("click", () => {
+navMenu.classList.remove("show-menu");
+});
+}
+
+// remove menu mobile
+const navLink = document.querySelectorAll(".nav-link");
+
+function linkAction() {
+const navMenu = document.getElementById("nav-menu");
+navMenu.classList.remove("show-menu");
+}
+
+navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+// qualifi
+const tabs = document.querySelectorAll("[data-target]"),
+tabContents = document.querySelectorAll("[data-content]");
+
+tabs.forEach((tab) => {
+tab.addEventListener("click", () => {
+const target = document.querySelector(tab.dataset.target);
+
+tabContents.forEach((tabContent) => {
+  tabContent.classList.remove("qualification-active");
+});
+target.classList.add("qualification-active");
+
+tabs.forEach((tab) => {
+  tab.classList.remove("qualification-active");
+});
+
+tab.classList.add("qualification-active");
+});
+});
+
+// services box
+const boxViews = document.querySelectorAll(".services-box"),
+boxBtns = document.querySelectorAll(".services-button"),
+boxCloses = document.querySelectorAll(".services-box-close");
+
+let box = function (boxClick) {
+boxViews[boxClick].classList.add("active-box");
+};
+
+boxBtns.forEach((boxBtn, i) => {
+boxBtn.addEventListener("click", () => {
+box(i);
+});
+});
+
+boxCloses.forEach((boxClose) => {
+boxClose.addEventListener("click", () => {
+boxViews.forEach((boxView) => {
+  boxView.classList.remove("active-box");
+});
+});
+});
+
+//scroll section active link
+const sections = document.querySelectorAll("section[id]");
+
+function scrollActive() {
+//const scrollY = window.pageYOffset;//
+const elements = document.querySelectorAll('.your-selector');
+
+
+sections.forEach((element) => {
+const sectionHeight = current.offsetHeight;
+const sectionTop = current.offsetTop - 50;
+sectionId = current.getAttribute("id");
+
+if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+  document
+    .querySelector(".nav-menu a[href*=" + sectionId + "]")
+    .classList.add("active-link");
+} else {
+  document
+    .querySelector(".nav-menu a[href*=" + sectionId + "]")
+    .classList.remove("active-link");
+}
+});
+}
+window.addEventListener("scroll", scrollActive);
+
+// change bg header
+function scrollHeader() {
+const nav = document.getElementById("header");
+// When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
+if (this.scrollY >= 200) nav.classList.add("scroll-header");
+else nav.classList.remove("scroll-header");
+}
+window.addEventListener("scroll", scrollHeader);
+
+/==================== SHOW SCROLL TOP ====================/
+function scrollUp() {
+const scrollUp = document.getElementById("scroll-up");
+// When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
+if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
+else scrollUp.classList.remove("show-scroll");
+}
+window.addEventListener("scroll", scrollUp);
+
+//dark light mode------------------
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+const iconTheme = "fa-sun";
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () =>
+document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+themeButton.classList.contains(iconTheme) ? "fa-moon" : "fa-sun";
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+// If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+darkTheme
+);
+themeButton.classList[selectedIcon === "fa-moon" ? "add" : "remove"](
+iconTheme
+);
+}
+
+// Activate / deactivate the theme manually with the button
+themeButton.addEventListener("click", () => {
+// Add or remove the dark / icon theme
+document.body.classList.toggle(darkTheme);
+themeButton.classList.toggle(iconTheme);
+// We save the theme and the current icon that the user chose
+localStorage.setItem("selected-theme", getCurrentTheme());
+localStorage.setItem("selected-icon", getCurrentIcon());
+});
+
+//swiper
+let swiperPortfolio = new Swiper(".portfolio-container", {
+cssMode: true,
+loop: true,
+
+navigation: {
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+});
+
+let swiperTestimonial = new Swiper(".testimonial-container", {
+cssMode: true,
+loop: true,
+spaceBetween: 48,
+
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+
+breakpoints: {
+568: {
+  slidesPerView: 2,
+},
+},
+});</script>
+
+
+<script>
+//  const socket = io("https://basic-chat-back-end-production.up.railway.app/");
+const socket = io("ws://localhost:8000");
+
+const msgInput = document.querySelector("#message");
+const nameInput = document.querySelector("#name");
+const chatRoom = document.querySelector("#room");
+const activity = document.querySelector(".activity");
+const usersList = document.querySelector(".user-list");
+const roomList = document.querySelector(".room-list");
+const chatDisplay = document.querySelector(".chat-display");
+
+function sendMessage(e) {
+e.preventDefault();
+if (nameInput.value && msgInput.value && chatRoom.value) {
+socket.emit("message", {
+  name: nameInput.value,
+  text: msgInput.value,
+});
+msgInput.value = "";
+}
+msgInput.focus();
+}
+
+function enterRoom(e) {
+e.preventDefault();
+if (nameInput.value && chatRoom.value) {
+socket.emit("enterRoom", {
+  name: nameInput.value,
+  room: chatRoom.value,
+});
+}
+}
+
+document.querySelector(".form-msg").addEventListener("submit", sendMessage);
+
+document.querySelector(".form-join").addEventListener("submit", enterRoom);
+
+msgInput.addEventListener("keypress", () => {
+socket.emit("activity", nameInput.value);
+});
+
+// Listen for messages
+socket.on("message", (data) => {
+activity.textContent = "";
+const { name, text, time } = data;
+
+// Format date to local time
+let options = {
+// year: "numeric",
+// month: "long",
+// day: "numeric",
+hour: "2-digit",
+minute: "2-digit",
+// second: "2-digit",
+};
+const formattedTimeString = new Date(time).toLocaleDateString("en-US", options);
+
+const li = document.createElement("li");
+li.className = "post";
+if (name === nameInput.value) li.className = "post post--left";
+if (name !== nameInput.value && name !== "Admin")
+li.className = "post post--right";
+if (name !== "Admin") {
+li.innerHTML = `<div class="post__header ${
+  name === nameInput.value ? "post_header--user" : "post_header--reply"
+}">
+    <span class="post__header--name">${name}</span> 
+    <span class="post__header--time">${formattedTimeString}</span> 
+    </div>
+    <div class="post__text">${text}</div>`;
+} else {
+li.innerHTML = <div class="post__text">${text}</div>;
+}
+document.querySelector(".chat-display").appendChild(li);
+
+chatDisplay.scrollTop = chatDisplay.scrollHeight;
+});
+
+let activityTimer;
+socket.on("activity", (name) => {
+activity.textContent = ${name} is typing...;
+
+// Clear after 3 seconds
+clearTimeout(activityTimer);
+activityTimer = setTimeout(() => {
+activity.textContent = "";
+}, 3000);
+});
+
+socket.on("userList", ({ users }) => {
+showUsers(users);
+});
+
+socket.on("roomList", ({ rooms }) => {
+showRooms(rooms);
+});
+
+function showUsers(users) {
+usersList.textContent = "";
+if (users) {
+usersList.innerHTML = <em>Users in ${chatRoom.value}:</em>;
+users.forEach((user, i) => {
+  usersList.textContent += ` ${user.name}`;
+  if (users.length > 1 && i !== users.length - 1) {
+    usersList.textContent += ",";
+  }
+});
+}
+}
+
+function showRooms(rooms) {
+roomList.textContent = "";
+if (rooms) {
+roomList.innerHTML = "<em>Active Rooms:</em>";
+rooms.forEach((room, i) => {
+  roomList.textContent += ` ${room}`;
+  if (rooms.length > 1 && i !== rooms.length - 1) {
+    roomList.textContent += ",";
+  }
+});
+}
+}
+
+
+
+</script>
